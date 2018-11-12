@@ -1,23 +1,15 @@
 > Basic Usage: This document describes the basic usage of the pyecharts library.
 
-### Install pyecharts
+### Installation
 
-#### Compatibility
+Available from pypi:
 
-pyecharts supports Python2.7+ and Ptyhon3.5+. If you are using Python 2.7, please declare the character encoding at the top of the code, otherwise there will be Chinese garbled problems.
-```python
-#coding=utf-8
-from __future__ import unicode_literals
-```
-
-#### pyecharts
-
-pip install
 ```shell
 $ pip install pyecharts
 ```
 
-source code install
+If you do not mind the size, especially you would like to develop, try get the source and install it:
+
 ```shell
 $ git clone https://github.com/pyecharts/pyecharts.git
 $ cd pyecharts
@@ -25,20 +17,28 @@ $ pip install -r requirements.txt
 $ python setup.py install
 ```
 
-#### Map plugin
+#### Compatibility
 
-Since v0.3.2, in order to reduce the size of the project itself and maintain the lightweight operation of the pyecharts project, pyecharts will no longer have its own map js file. Developers who want to use the map **must** manually install the map plugin. Detailed reference [Map Customization](en-us/customize_map).
+pyecharts supports Python2.7 and Ptyhon3.5+. If you are using Python 2.7, please declare the character encoding at the top of the code, otherwise there will be Chinese garbled problems.
 
+```python
+#coding=utf-8
+from __future__ import unicode_literals
+```
 
 ### Quick start
 
 Now, you are ready to make your first chart!
+
 ```python
 from pyecharts import Bar
 
 bar = Bar("My first bar chart", "For our fashion shop client")
-bar.add("Clothes", ["T-shirt", "Sweater", "Georgette", "Trousers", "High-heels", "Socks"], [5, 20, 36, 10, 75, 90])
-# bar.print_echarts_options() # This line is only for printing configuration items, which is convenient for debugging.
+bar.add(
+    "Clothes",
+    ["T-shirt", "Sweater", "Georgette", "Trousers", "High-heels", "Socks"],
+    [5, 20, 36, 10, 75, 90]
+)
 bar.render()  # generate a local HTML file
 ```
 
@@ -59,8 +59,12 @@ bar.render()  # generate a local HTML file
 from pyecharts import Bar
 
 bar = Bar("My first bar chart", "For our fashion shop client")
-bar.add("Clothes", ["T-shirt", "Sweater", "Georgette", "Trousers", "High-heels", "Socks"], [5, 20, 36, 10, 75, 90],
-        is_more_utils=True)
+bar.add(
+    "Clothes",
+    ["T-shirt", "Sweater", "Georgette", "Trousers", "High-heels", "Socks"],
+    [5, 20, 36, 10, 75, 90],
+    is_more_utils=True
+)
 bar.render()
 ```
 ![guide-1](https://user-images.githubusercontent.com/4280312/45588058-9aa13a80-b906-11e8-9d41-dd8b9f625c6d.png)
@@ -75,7 +79,11 @@ from pyecharts import Bar
 
 bar = Bar("My first bar chart", "For our fashion shop client")
 bar.use_theme('dark')
-bar.add("Clothes", ["T-shirt", "Sweater", "Georgette", "Trousers", "High-heels", "Socks"], [5, 20, 36, 10, 75, 90])
+bar.add(
+    "Clothes",
+    ["T-shirt", "Sweater", "Georgette", "Trousers", "High-heels", "Socks"],
+    [5, 20, 36, 10, 75, 90]
+)
 bar.render()
 ```
 ![guide-2](https://user-images.githubusercontent.com/4280312/45588084-e9e76b00-b906-11e8-99d7-9e3d651bfcc2.png)
@@ -136,11 +144,19 @@ You can call `chart.render`  many times to show some charts in a script.
 from pyecharts import Bar, Line
 
 bar = Bar("我的第一个图表", "这里是副标题")
-bar.add("服装", ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"], [5, 20, 36, 10, 75, 90])
+bar.add(
+    "服装",
+    ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"],
+    [5, 20, 36, 10, 75, 90]
+)
 bar.render(path='bar.html')
 
 line = Line("我的第一个图表", "这里是副标题")
-line.add("服装", ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"], [5, 20, 36, 10, 75, 90])
+line.add(
+    "服装",
+    ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"],
+    [5, 20, 36, 10, 75, 90]
+)
 line.render(path='line.html')
 ```
 
@@ -151,10 +167,18 @@ from pyecharts import Bar, Line
 from pyecharts.engine import create_default_environment
 
 bar = Bar("我的第一个图表", "这里是副标题")
-bar.add("服装", ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"], [5, 20, 36, 10, 75, 90])
+bar.add(
+    "服装",
+    ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"],
+    [5, 20, 36, 10, 75, 90]
+)
 
 line = Line("我的第一个图表", "这里是副标题")
-line.add("服装", ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"], [5, 20, 36, 10, 75, 90])
+line.add(
+    "服装",
+    ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"],
+    [5, 20, 36, 10, 75, 90]
+)
 
 env = create_default_environment()
 # Create a default configuration environment for rendering
@@ -190,6 +214,12 @@ and this
 more Jupyter notebook examples, please refer to [notebook-use-cases](https://github.com/chenjiandongx/pyecharts/blob/master/document/notebook-use-cases.ipynb). You could download and run it on your notebook.
 
 Use Jupyter Notebook to display charts, just call your own instance and be compatible with Python2 and Python3's Jupyter Notebook environment. All charts can be displayed normally, and the interactive experience is consistent with the browser. It is even no need PPT with this method to display report! !
+
+
+#### Map plugins
+
+Since v0.3.2, in order to reduce the size of the project itself and maintain the lightweight operation of the pyecharts project, pyecharts will no longer have its own map js file. Developers who want to use the map **must** manually install the map plugin. Detailed reference [Map Customization](en-us/customize_map).
+
 
 ### Offline installation instructions for pyecharts
 

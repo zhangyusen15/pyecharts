@@ -1,14 +1,14 @@
 pyecharts is a class library for generating ECharts charts. ECharts is a data visualization JS library of Baidu Open Source. The graphics generated with ECharts are very visual, and pyecharts is designed to interface with Python, making it easy to use data generation diagrams directly in Python.
 
 - Basic Usage
-  - [Chart Render](en-us/prepare)
-  - [Chart Configuration](en-us/charts_configure)
-  - [Chart Basic](en-us/charts_base)
-  - [Chart Customization](en-us/charts_custom)
+  - [Pyecharts in a nutshell](en-us/prepare)
+  - [All Options](en-us/charts_configure)
+  - [All Charts](en-us/charts_base)
+  - [Composite Charts](en-us/charts_custom)
   - [Chart Style](en-us/charts_style)
   - [Data Analysis and Import](en-us/data_import)
 - Advance Topics
-  - [Chart API](en-us/api)
+  - [Internals](en-us/api)
   - [Themes Customization](en-us/themes)
   - [Map Customization](en-us/customize_map)
   - [Callback Function & Event Handler](en-us/advanced)
